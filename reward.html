@@ -1,0 +1,36 @@
+<body style="background-color:#fefefa;"></body>
+<link rel="manifest" href="manifest.json">
+
+<style>
+
+</style>
+
+<center>
+<br>
+<br>
+<br>
+<br>
+<video id="vid" width="70%" autoplay="autoplay">
+    <source id="vid"2 src="Preview_18.mov" type="video/mp4" />
+</video>
+<br>
+<button id="btn" type="button" onclick="myFunction()" style="height: 30%; width: 30%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 500; margin-top: -30%; position: sticky;">Klik!</button>
+</center>
+
+<script>
+    function launchFullScreen(element) {
+  if(element.requestFullScreen) {
+    element.requestFullScreen();
+  } else if(element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if(element.webkitRequestFullScreen) {
+    element.webkitRequestFullScreen();
+  }
+}
+    function myFunction() {
+        launchFullScreen(document.documentElement);
+        document.getElementById('vid').play();
+        document.getElementById("btn").remove();
+        
+    }
+</script>

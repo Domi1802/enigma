@@ -1,0 +1,63 @@
+<body style="background-color:#fefefa;"></body>
+
+<center>
+    <img src="=-=BT.png" height="70%" style="margin-top: -8%;">
+
+
+<div style="margin-top: -8%;">
+    <label for="title" id="titleTitle">Tytuł:</label>
+    <input type="text" id="title"><br><br>
+    <label for="author "id="authorTitle">Autor:</label>
+    <input type="text" id="author"><br><br>
+    <input type="submit" value="Wyszukaj książke" onclick="NextStep()" id="Submit">
+</div>
+
+<a id="Errors"></a>
+
+
+<script>
+    function AllowFunctions() {
+        var url = new URL("index.html?#");
+    }
+    function NextStep() {
+        Title = document.getElementById("title").value.toLowerCase()
+        Author = document.getElementById("author").value.toLowerCase()
+        if(Title == "kocham cię") {
+            console.log("jest")
+        }
+        else {
+            if(Title == "kocham cie") {
+                console.log("jest")
+            }
+            else {
+                document.getElementById("Errors").innerHTML="Błędny tytuł.";
+                return
+            }
+        }
+        if(Author == "gracjan kierul"){
+            document.getElementById("Errors").innerHTML="Odnaleziono 1 rekord...";
+            document.getElementById("title").remove();
+            document.getElementById("author").remove();
+            document.getElementById("titleTitle").remove();
+            document.getElementById("authorTitle").remove();
+            document.getElementById("Submit").remove();
+            var x = document.createElement("BUTTON");
+            var t = document.createTextNode("Przeczytaj...");
+            x.appendChild(t);
+            document.body.appendChild(x);
+            x.style.position = "absolute";
+            x.style.left = "50%";
+            x.style.transform = "translateX(-50%)";
+            x.id = "NextStepButton"
+            x.onclick = Stage2
+        }
+        else{
+            document.getElementById("Errors").innerHTML="Błędny autor.";
+        }
+    }
+    function Stage2() {
+        document.getElementById("NextStepButton").remove();
+        document.getElementById("Errors").remove();
+        window.location.replace("Stage2.html");
+    }
+</script>
