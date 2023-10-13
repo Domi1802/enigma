@@ -1,0 +1,58 @@
+<body style="background-color:#fefefa;"></body>
+
+<style>
+    input {
+    text-align: center;
+    }
+</style>
+
+<center>
+    <img src="=-=BT.png" height="70%" style="margin-top: -8%;">
+
+
+<div style="margin-top: -8%;">
+    <label for="title" id="titleTitle" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 500;">ID użytkownika:</label><br>
+    <input type="text" id="UID"><br><br>
+    <label for="author "id="authorTitle" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 500;">Wybierz język:</label><br>
+    <input type="radio" id="css" name="fav_language" value="ES">
+    <label for="css">Hiszpański</label>
+    <input type="radio" id="css" name="fav_language" value="PL">
+    <label for="css">Polski</label>
+    <input type="radio" id="css" name="fav_language" value="EN">
+    <label for="css">Angielski</label><br><br>
+    <input type="submit" value="Zaloguj się" onclick="NextStep()" id="Submit" style="height: 5%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 500;">
+</div>
+
+<a id="Errors"></a>
+
+<script>
+    function atLeastOneRadio() {
+        var radios = document.getElementsByTagName('input');
+        var value;
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].type === 'radio' && radios[i].checked) {
+        // get value, set checked flag or do whatever you need to
+                value = radios[i].value;    
+                return value
+            }
+}
+    }
+    function NextStep() {
+        UID = document.getElementById("UID").value.toLowerCase()
+        console.log(atLeastOneRadio())
+        if(atLeastOneRadio() == "ES") {
+
+        }
+        else{
+            document.getElementById("Errors").innerHTML="Nie znaleziono użytkownika";
+            return
+        }
+        if(UID == "37") {
+            window.location.replace("finder.html");
+        }
+        else{
+            document.getElementById("Errors").innerHTML="Nie znaleziono użytkownika";
+            return
+        }
+    }
+</script>
