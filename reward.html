@@ -9,7 +9,9 @@
 <br>
 <br>
 <br>
-<br>
+<div id="Div">
+    Przed kliknięciem obróć ekran o 90 stopni.
+</div>
 <video id="vid" width="70%">
     <source id="vid"2 src="Preview_18.mov" type="video/mp4" />
 </video>
@@ -31,6 +33,6 @@
         launchFullScreen(document.documentElement);
         document.getElementById('vid').play();
         document.getElementById("btn").remove();
-        
+        document.getElementById("Div").remove();
     }
 </script>
