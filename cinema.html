@@ -42,12 +42,36 @@
   right: 0;
 }
 </style>
+
+<script>
+var getJSON = function(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('get', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+      var status = xhr.status;
+      if (status == 200) {
+        callback(null, xhr.response);
+      } else {
+        callback(status);
+      }
+    };
+    xhr.send();
+};
+
+getJSON('https://api.npoint.io/3b16c5b7193f0f978ac9', function(err, data) {
+    if (err != null) {
+      alert('Something went wrong: ' + err);
+    } else {
+      url = data.result
+    }
+  });
+</script>
+
 </head>
 <body>
-<center style="padding-top: 20%"><a href="https://aware-wise-airedale.ngrok-free.app/">
-<button class="button" style="vertical-align:middle;"><span>Hover </span></button>
+<center style="padding-top: 20%"><a>
+<button onclick="location.href = url;" class="button" style="vertical-align:middle;"><span>Klik </span></button>
 </a></center>
 </body>
 </html>
-
-
