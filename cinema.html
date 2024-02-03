@@ -1,3 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
 <script>
 var getJSON = function(url, callback) {
     var xhr = new XMLHttpRequest();
@@ -35,3 +79,14 @@ getJSON('https://api.npoint.io/3b16c5b7193f0f978ac9', function(err, data) {
   allowfullscreen>
 </iframe>
 </center>
+
+<br>
+<br>
+</head>
+<body>
+<center ><a href="localhost:8080">
+<button class="button" style="vertical-align:middle;"><span>Admin </span></button>
+</a></center>
+</body>
+</html>
+
